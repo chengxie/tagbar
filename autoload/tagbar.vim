@@ -2868,6 +2868,10 @@ function! s:EscapeCtagsCmd(ctags_bin, args, ...) abort
             let s:warnings.encoding = 1
         endif
     endif
+    
+    if a:ctags_bin == 'jsctags'
+        let ctags_cmd .= ' | sed ''s/\\{/\\\\{/g'''
+    endif
 
     return ctags_cmd
 endfunction
