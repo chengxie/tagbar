@@ -2870,7 +2870,7 @@ function! s:EscapeCtagsCmd(ctags_bin, args, ...) abort
     endif
     
     if a:ctags_bin == 'jsctags'
-        let ctags_cmd .= ' | sed ''/^innerHTML/d'' | sed ''s/\\{/\\\\{/g'''
+        let ctags_cmd .= ' | sed ''/namespace:Element/d'' | sed ''s/\\{/\\\\{/g'''
     endif
 
     return ctags_cmd
